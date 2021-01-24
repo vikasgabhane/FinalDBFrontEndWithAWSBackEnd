@@ -1,0 +1,67 @@
+<div>
+    <div class="mainbody" >
+       
+
+        <div class=" row  justify-content-between align-items-center sticky-top" style="height: 60px;background-color: rgb(153, 91, 10);">
+            <div class="col-7 d-flex text-light pr-2">
+              <h3 class="pl-2" style="font-size: 24px; font-weight: bold; ">Digital Barter</h3>
+            </div>
+            <div class="col-5 ">
+                <a class="btn btn-outline-light btn-sm ml-3" (click)="addBookBtnClick()" >Add Book</a>
+                <a class="btn btn-outline-light btn-sm ml-3" (click)="profileBtnClick()" >Profile</a>
+                <a class="btn btn-outline-light btn-sm ml-3" (click)="excReqBtnClick()" >Exchange Requests</a>
+                <a class="btn btn-outline-light btn-sm ml-3" (click)="myReqBtnClick()" >My Requests</a> 
+              <button class="btn btn-danger btn-sm ml-3" (click)="logoutFunction()">Logout</button>
+            </div>
+          
+        </div>
+        
+        
+
+<div >
+
+    <h3  class="pt-2" style="  padding-bottom: 5vh;">Book List</h3>
+
+<table class="table table-striped " style="background-color: lightgrey; " >
+    <thead>
+        <tr>
+            
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Genre</th>
+            <th>Publisher</th>
+            <th>Cost</th>
+            <th>Offer</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let b of books">
+            
+            <td>{{b.title}}</td>
+            <td>{{b.author}}</td>
+            <td>{{b.genre}}</td>
+            <td>{{b.publisher}}</td>
+            <td>{{b.cost}}</td>
+           <!--<select ng-model="selectedBook"   class="form-control" (click)="clickHere(selectedBook1)" selected-option="selectedBook1" >
+                <option >Select Book:</option>
+                <option  *ngFor= "let mybook of mybooks" [ngValue]="mybook">{{mybook.title}}</option>
+            </select>
+            --> 
+            <!--value={{mybook.bookId}}-->
+            <select [(ngModel)]="selectedBook1"   class="form-control" (click)="clickHere()" style="margin-top: 1vh;" >
+               <option >Select Book:</option> 
+                <option  *ngFor= "let mybook of mybooks" [ngValue]="mybook">{{mybook.title}}</option>
+            </select>
+           
+            <td>
+                <button (click)="exchangeBook(b.bookId)" class="btn btn-info" style="margin-bottom: 2vh;">Exchange</button>
+            </td>
+        </tr>
+    </tbody>
+
+</table>  
+</div>
+    </div>
+
+</div>

@@ -1,0 +1,82 @@
+<div>
+  <div class="mainbody" style="height: 100vh; width: 100vw; background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+  background-image: url(https://raw.githubusercontent.com/karanjadhav/karanjadhav.github.io/master/digibar.jpg);">
+
+<div class="container-fluid">
+  <div class=" row  justify-content-between align-items-center sticky-top" style="height: 60px;background-color: rgb(153, 91, 10);">
+    <div class="col-10 d-flex text-light pr-2">
+      <h3 class="pl-2" style="font-size: 24px; font-weight: bold; ">Digital Barter</h3>
+    </div>
+    <div class="col-2 ">
+      <button class="btn btn-outline-light btn-sm ml-3" (click)="goToRegister()">Register</button>
+    </div>
+
+  </div>
+
+<div class="container">
+<div class="col-md-6 offset-md-3 ">
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="border " style=" margin: 10%; padding: 8%;background-color: lightgrey; ">
+    <h3 style="margin-bottom: 5vh;"> login User </h3>
+    <form (ngSubmit) = "onSubmit()" #loginform="ngForm" >
+        <!-- <small class="text-danger">
+            {{msg}}
+        </small> -->
+        <!-- eamil id validation -->
+        <div class="form-group" 
+        [class.has-error]="userEmail.invalid && userEmail.touched"
+        [class.has-success]="userEmail.valid">
+            <label for="Email" class="font-weight-bold">Email</label>
+            <input [(ngModel)]="user.emailId" type="email" name="userEmail" id="userEmail" 
+            class="form-control" placeholder="Enter Email" 
+            #userEmail="ngModel" required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">   
+            <span class="help-block text-danger" *ngIf="userEmail.hasError('required') && userEmail.touched">
+              Email-Id is required
+            </span>
+            <span class="help-block text-danger" *ngIf="userEmail.hasError('pattern') && userEmail.touched">
+                Not a valid Email
+            </span>
+        </div>    
+    
+        <!-- password validation -->
+        <div class="form-group "
+        [class.has-error]="userPassword.invalid && userPassword.touched"
+        [class.has-success]="userPassword.valid">
+            <label for="Password" class="control-label font-weight-bold">Password</label>
+            <input type="password" [(ngModel)]="user.password" name="userPassword" 
+            id="userPassword" class="form-control" placeholder="Enter Password" 
+             #userPassword="ngModel" required minlength=3 maxlength=8>
+             <span class="help-block text-danger" 
+             *ngIf="userPassword.hasError('required') && userPassword.touched">
+              password is required
+            </span>
+            <span class="help-block text-danger" 
+             *ngIf="userPassword.hasError('minlength')">
+              password is too short
+            </span>
+            <span class="help-block text-danger" 
+             *ngIf="userPassword.hasError('maxlength')">
+              password is too large
+            </span>
+         </div>
+        
+  
+        <button class = "btn btn-outline-success btn-sm mr-2" type ="submit" [disabled]="loginform.invalid">Sign In</button>
+        <a (click)="goToForgetPass()" class="btn btn-sm btn-outline-info mr-2" >forget password</a>
+        <a (click)="goToChangePass()" class="btn btn-sm btn-outline-info mr-2"  >change password</a>
+        
+        <div class="alert alert-danger" role="alert" *ngIf="uiInvalidCredential">
+            Invaild Data
+          </div>
+        
+    </form>
+  </div>
+  </div>
+</div>
+</div>
+  </div>
+</div>

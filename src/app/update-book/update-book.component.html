@@ -1,0 +1,55 @@
+<div>
+    <div class="mainbody" >
+
+<div class=" row  justify-content-between align-items-center sticky-top" style="height: 60px;background-color: rgb(153, 91, 10);">
+    <div class="col-10 d-flex text-light pr-2">
+      <h3 class="pl-2" style="font-size: 24px; font-weight: bold; ">Digital Barter</h3>
+    </div>
+    <div class="col-2 ">
+      <button class="btn btn-outline-light btn-sm ml-3" (click)="goToBookList()">Home</button>
+      <button class="btn btn-danger btn-sm ml-3" (click)="logoutFunction()">Logout</button>
+    </div>
+  
+</div>
+<div class="col-md-6 offset-md-3 " style="padding-bottom: 3vh; background-color: lightgrey;">
+    <h3>Update Book </h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" id="title" [(ngModel)]="book.title" name="title">
+        </div>
+
+       <!-- <div class="form-group">
+            <label>User Id</label>
+            <input type="number" class="form-control" id="userid" [(ngModel)]="book.userid" name="userid">
+        </div>
+        -->
+
+        <div class="form-group">
+            <label>Author</label>
+            <input type="text" class="form-control" id="author" [(ngModel)]="book.author" name="author">
+        </div>
+
+        <div class="form-group">
+            <label>Publisher</label>
+            <input type="text" class="form-control" id="publisher" [(ngModel)]="book.publisher" name="publisher">
+        </div>
+
+        <div class="form-group">
+            <label>Genre</label>
+            <input type="text" class="form-control" id="genre" [(ngModel)]="book.genre" name="genre">
+        </div>
+        <div class="form-group">
+            <label>ISBN</label>
+            <input type="text" class="form-control" id="isbn" [(ngModel)]="book.isbn" name="isbn">
+        </div>
+        <div class="form-group">
+            <label>Cost</label>
+            <input type="number" class="form-control" id="cost" [(ngModel)]="book.cost" name="cost">
+        </div>
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+</div>
+    </div>
+</div>
+

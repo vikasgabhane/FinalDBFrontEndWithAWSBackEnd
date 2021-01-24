@@ -1,0 +1,173 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+        html,
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+  background: linear-gradient(90deg, rgba(47,54,64,1) 23%, rgb(22, 24, 27) 100%);
+}
+
+.moon {
+  background: linear-gradient(90deg, rgb(143, 77, 1) 48%, rgb(168, 132, 111) 100%);
+  position: absolute;
+  top: -100px;
+  left: -300px;
+  width: 700px;
+  height: 700px;
+  content: '';
+  border-radius: 100%;
+  box-shadow: 0px 0px 30px -4px rgba(0,0,0,0.5);
+}
+
+.moon__crater {
+  position: absolute;
+  content: '';
+  border-radius: 100%;
+  background: linear-gradient(90deg, rgba(122,122,122,1) 38%, rgba(195,195,195,1) 100%);
+  opacity: 0.6;
+}
+
+.moon__crater1 {
+  top: 200px;
+  left: 280px;
+  width: 60px;
+  height: 180px;
+}
+
+.moon__crater2 {
+  top: 480px;
+  left: 100px;
+  width: 40px;
+  height: 80px;
+  transform: rotate(55deg);
+}
+
+.moon__crater3 {
+  top: -20px;
+  left: 20px;
+  width: 65px;
+  height: 120px;
+  transform: rotate(270deg);
+}
+
+.star {
+  background: rgb(255, 255, 255);
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  content: '';
+  border-radius: 100%;
+  opacity: 0.4;
+  animation-name: shimmer;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes shimmer {
+  from {opacity: 0;}
+  to {opacity: 0.7;}
+}
+
+.star1 {
+  top: 40%;
+  left: 35%;
+  animation-delay: 1s;
+}
+
+.star2 {
+  top: 60%;
+  left: 80%;
+  animation-delay: 3s;
+}
+
+.star3 {
+  top: 10%;
+  left: 60%;
+  animation-delay: 2s;
+}
+
+.star4 {
+  top: 90%;
+  left: 40%;
+}
+
+.star5 {
+  top: 20%;
+  left: 90%;
+  animation-delay: 0.5s;
+}
+
+.star6 {
+  top: 80%;
+  left: 65%;
+  animation-delay: 0.5s;
+}
+
+.error {
+  position: absolute;
+  left: 45%;
+  top: 10%;
+  color: #ffffff;
+}
+
+.error__title {
+  font-size: 6em;
+  font-family: sans-serif;
+}
+
+.error__subtitle {
+  font-family: 'Righteous', cursive;
+  padding-top: 2.5vh;
+  font-size: 3em;
+}
+
+.error__description {
+  font-family: 'Righteous', cursive;
+  font-size: 1.5em;
+  opacity: 0.5;
+}
+
+.fa-space-shuttle {
+    color:white;
+    font-size: 7em;
+    transform: rotate(270deg);
+    margin-top: 5%;
+}
+.fa-space-shuttle:hover {
+    font-size: 8em;
+    transform: rotate(340deg);
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="moon"></div>
+<div class="moon__crater moon__crater1"></div>
+<div class="moon__crater moon__crater2"></div>
+<div class="moon__crater moon__crater3"></div>
+
+<div class="star star1"></div>
+<div class="star star2"></div>
+<div class="star star3"></div>
+<div class="star star4"></div>
+<div class="star star5"></div>
+<div class="star star6"></div>
+
+<div class="error">
+  <div class="error__title">Error 404</div>
+  <div class="error__subtitle">Oh no!</div>
+  <div class="error__description">You're lost...<br>
+    But you can click on the spaceship below <br>
+    to go back to the home.</div>
+    <input type="image" src="https://raw.githubusercontent.com/karanjadhav/karanjadhav.github.io/master/spaceship.png"
+                alt="book" (click)="goToHomepage();" style="height:20vh; margin-top: 5vh;" />
+</div>
+    
+</body>

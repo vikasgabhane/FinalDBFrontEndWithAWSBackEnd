@@ -1,0 +1,54 @@
+<div>
+        <div class="mainbody" >
+            <!--style="height: 100vh; width: 100vw; background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: white;
+        background-image: url(https://raw.githubusercontent.com/karanjadhav/karanjadhav.github.io/master/digibar.jpg);"-->
+
+
+
+<div class=" row  justify-content-between align-items-center sticky-top" style="height: 60px;background-color: rgb(153, 91, 10);">
+    <div class="col-10 d-flex text-light pr-2">
+      <h3 class="pl-2" style="font-size: 24px; font-weight: bold; ">Digital Barter</h3>
+    </div>
+    <div class="col-2 ">
+      <button class="btn btn-outline-light btn-sm ml-3" (click)="goToBookList()">Home</button>
+      <button class="btn btn-danger btn-sm ml-3" (click)="logoutFunction()">Logout</button>
+    </div>
+  
+</div>
+
+<h3 class="pt-2" >My Sent Requests</h3>
+
+<table class="table table-striped" style="background-color: lightgrey; margin-top: 3vh;">
+    <thead>
+        <tr>
+            <th>User Id</th>
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Genre</th>
+            <th>Publisher</th>
+            <th>Cost</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let exreq of exchangeRequests">
+            <td >{{exreq.granterUserId}}</td>
+            <td>{{exreq.granterBookTitle}}</td>
+            <td>{{exreq.granterBookAuthor}}</td>
+            <td>{{exreq.granterBookGenre}}</td>
+            <td>{{exreq.granterBookPublisher}}</td>
+            <td>{{exreq.granterBookCost}}</td>         
+            <td>
+                <button (click)="cancelRequest(exreq.exchangeId)" class="btn btn-outline-danger">Cancel</button>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
+
+        </div>
+</div>

@@ -1,0 +1,66 @@
+<div>
+    <div class="mainbody" >
+
+
+
+<div class=" row  justify-content-between align-items-center sticky-top" style="height: 60px;background-color: rgb(153, 91, 10);">
+    <div class="col-10 d-flex text-light pr-2">
+      <h3 class="pl-2" style="font-size: 24px; font-weight: bold; ">Digital Barter</h3>
+    </div>
+    <div class="col-2 ">
+      <button class="btn btn-outline-light btn-sm ml-3" (click)="goToBookList()">Home</button>
+      <button class="btn btn-danger btn-sm ml-3" (click)="logoutFunction()">Logout</button>
+    </div>
+  
+</div>
+
+<div >
+<h3 style=" font-size: xx-large; margin-top: 5vh;">My Profile</h3>
+<div *ngIf = "user" style="background-color: lightgrey; padding: 5vh;">
+<h4>User Name : {{user.userName}}</h4>
+<h4>Email Id  : {{user.emailId}}</h4>
+<h4>Mobile No : {{user.mobileNo}}</h4>
+<h4>Gender    : {{user.gender}}</h4>
+<h4>City      : {{user.city}}</h4>
+<h4>Pincode   : {{user.pincode}}</h4>
+</div><br>
+
+<div>
+    <h3 style=" font-size: xx-large;">My Book List</h3>
+
+<table class="table table-striped" style="background-color: lightgrey;">
+    <thead>
+        <tr>
+            
+            <th>ISBN</th>
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Genre</th>
+            <th>Publisher</th>
+            <th>Cost</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let book of books">
+            
+            <td>{{book.isbn}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.genre}}</td>
+            <td>{{book.publisher}}</td>
+            <td>{{book.cost}}</td>
+            <td>
+                <button (click)="updateBook(book.bookId)" class="btn btn-warning mr-2">Update</button>
+                
+                
+                <button (click)="deleteBook(book.bookId)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+</div>
+</div>
+    </div>
+</div>

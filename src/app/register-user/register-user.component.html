@@ -1,0 +1,181 @@
+<div>
+    <div class="mainbody" style="height: 100%; width: 100vw; background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-image: url(https://raw.githubusercontent.com/karanjadhav/karanjadhav.github.io/master/digibar.jpg);">
+
+
+<div class=" row  justify-content-between align-items-center sticky-top" style="height: 55px;background-color: rgb(153, 91, 10);">
+  <div class="col-10 d-flex text-light pr-2">
+    <h3 class="pl-2" style="font-size: 24px; font-weight: bold; ">Digital Barter</h3>
+  </div>
+  <div class="col-2  ">
+    <button class="btn btn-outline-light btn-sm " (click)="goToUserLogin()">Login</button>
+  </div>
+
+</div>
+    
+<div class="col-md-6 offset-md-3" style="background-color: lightgrey;">
+    <h3 class="b text-dark"> Register User </h3>
+   <!-- <div class="alert alert-danger" role="alert" *ngIf="uiInvalidCredential">
+        User Already Exists..
+      </div>
+      -->
+      <!-- name validation -->
+    <form (ngSubmit) = "onSubmit()" #userFormControl="ngForm">
+    
+        <div class="form-group col-md-6" 
+        [class.has-error]="uname.invalid && uname.touched"
+        [class.has-success]="uname.valid">
+            <label for="fname" class="control-label font-weight-bold ">User Name</label>
+            <input type="text" [(ngModel)]="user.userName" name="custFname" id="custFname" 
+            class="form-control " placeholder="Enter User Name" 
+             #uname="ngModel" required
+             pattern="^[a-zA-Z]+(?:[\s][a-zA-Z]+)*$">
+            <span class="help-block text-danger" *ngIf="uname.hasError('required') && uname.touched">
+              User Name is required
+            </span>
+            <span class="help-block text-danger" *ngIf="uname.hasError('pattern') && uname.touched">
+              Not a avlid User Name 
+            </span>
+        </div>
+    
+              <!-- password validation -->
+            <div class="form-group col-md-6" 
+            [class.has-error]="upassword.touched && upassword.invalid"
+            [class.has-success]="upassword.valid">
+                <label for="password" class="control-label font-weight-bold">Password</label>
+                <input type="password" [(ngModel)]="user.password" name="custPassword"
+                 id="custPassword" class="form-control" placeholder="Enter Password" 
+                 #upassword="ngModel" required minlength=3 maxlength=8>
+                 <span class="help-block text-danger" 
+                 *ngIf="upassword.errors?.required && upassword.touched">
+                  password is required
+                </span>
+                <span class="help-block text-danger" 
+                 *ngIf="upassword.hasError('minlength')">
+                  password is too short
+                </span>
+                <span class="help-block text-danger" 
+                 *ngIf="upassword.hasError('maxlength')">
+                  password is too large
+                </span>
+             </div>
+
+             <!-- email validation -->
+
+             <div class="form-group col-md-6"
+             [class.has-error]="uEmail.invalid && uEmail.touched"
+             [class.has-success]="uEmail.valid">
+                 <label for="Email" class="control-label font-weight-bold">Email</label>
+                  <input type="email" [(ngModel)]="user.emailId" name="custEmail" 
+                  id="custEmail" class="form-control" placeholder="Enter Email" 
+                  #uEmail="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                  <span class="help-block text-danger" *ngIf="uEmail.hasError('required') && uEmail.touched">
+                   Email-Id is required
+                 </span>
+                 <span class="help-block text-danger" *ngIf="uEmail.hasError('pattern') && uEmail.touched">
+                   Not a valid Email
+                 </span>
+             </div>
+             <!-- Mobile No -->
+             <div class="form-group col-md-6"
+             [class.has-error]="ContactNo.invalid && ContactNo.touched"
+             [class.has-success]="ContactNo.valid">
+              <label for="Contact Number" class="control-label font-weight-bold">Contact Number</label>
+              <input type="text" class="form-control" [(ngModel)]="user.mobileNo" name="ContactNo"
+               id="ContactNo" placeholder="Enter contact number" 
+               #ContactNo="ngModel" required 
+               pattern="^[7-9]{1}[0-9]{9}$" minlength="10" maxlength="10">
+                <span class="help-block text-danger" 
+                   *ngIf="ContactNo.hasError('required') && ContactNo.touched">
+                    Contact Number is required
+                </span>
+                <span class="help-block text-danger" 
+                   *ngIf="ContactNo.hasError('pattern') && ContactNo.touched">
+                    Not a valid Contact Number
+                </span>
+            </div>   
+
+        <!-- <div class="form-group">
+            <label> Gender</label>
+            <input type="text" class ="form-control" id = "gender"
+                [(ngModel)] = "user.gender" name = "gender">
+        </div> -->
+    
+
+        <!--<div class="form-group" >
+            <label> Gender</label><br>
+        <select [(ngModel)]="user.gender" id="gender" name="gender" 
+            class="form-control" formControlName="gender">
+            <option   value="male">Male</option>
+            <option  value="female">Female</option>
+            <option  value="transgender">TransGender</option>
+          </select>
+
+          <input type="radio" id="gender1" class=" form-check-input" [(ngModel)]="user.gender" [value]="male" >
+          <label class="form-check-label" for="lblgender1">
+            Male
+          </label><br>
+          <input type="radio" id="gender1" class=" form-check-input" [(ngModel)]="user.gender" [value]="female" >
+          <label class="form-check-label" for="lblgender1">
+            Female
+          </label>
+        </div>
+        -->
+
+        <!-- gender validation-->
+        <div class="form-group col-md-4">
+            <label for="fname" class="control-label font-weight-bold">Gender</label>
+            <select [(ngModel)]="user.gender" id="gender" name="gender" placeholder="Gender" class="form-control" required>
+              <option disabled selected>--Gender--</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>  
+          </div>  
+          <!-- city -->
+          <div class="form-group col-md-6" 
+          [class.has-error]="cname.invalid && cname.touched"
+          [class.has-success]="cname.valid">
+              <label for="fname" class="control-label font-weight-bold">City</label>
+              <input type="text" [(ngModel)]="user.city" name="city" id="city" 
+              class="form-control " placeholder="Enter City Name" 
+               #cname="ngModel" required
+               pattern="^[a-zA-Z]+(?:[\s][a-zA-Z]+)*$">
+              <span class="help-block text-danger" *ngIf="cname.hasError('required') && cname.touched">
+                city Name is required
+              </span>
+              <span class="help-block text-danger" *ngIf="cname.hasError('pattern') && cname.touched">
+                Not a avlid city Name 
+              </span>
+          </div>
+        <!-- pincode -->
+        <div class="form-group col-md-4"
+        [class.has-error]="uPin.invalid && uPin.touched"
+        [class.has-success]="uPin.valid">
+          <label for="PIN" class="control-label font-weight-bold">Pincode</label>
+          <input type="text" [(ngModel)]="user.pincode" name="uPin" id="uPin" 
+          class="form-control" placeholder="Enter Pincode" 
+          #uPin="ngModel" required
+          pattern="^[1-9][0-9]{5}$" minlength="6" maxlength="6">
+            <span class="help-block text-danger" 
+               *ngIf="uPin.hasError('required') && uPin.touched">
+                Pincode is required
+            </span>  
+            <span class="help-block text-danger" 
+               *ngIf="uPin.hasError('pattern') && uPin.touched">
+                Not a valid Pincode 
+            </span>  
+        </div> 
+        <button class = "btn btn-success"  [disabled]="userFormControl.invalid"  type ="submit" >Register</button>
+        
+        
+    
+    </form>
+    </div> 
+
+    </div>
+</div>
